@@ -1,0 +1,5 @@
+EnterpriseResourcePlanner/__pycache__/
+EnterpriseResourcePlanner/__pycache__/settings.cpython-310.pyc
+db.sqlite3
+home/migrations/
+home/__pycache__/
