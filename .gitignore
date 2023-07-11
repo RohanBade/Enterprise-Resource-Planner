@@ -3,3 +3,5 @@ EnterpriseResourcePlanner/__pycache__/settings.cpython-310.pyc
 db.sqlite3
 home/migrations/
 home/__pycache__/
+users/migrations/
+users/__pycache__/
