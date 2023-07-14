@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.urls import reverse
 
 # Create your models here.
 class Transaction(models.Model):
@@ -27,3 +28,6 @@ class Transaction(models.Model):
     def __str__(self):
         transaction_name= self.username.username + "_" + str(self.pk) + self.datetime.strftime("_%m-%d-%Y")+ " (" + self.subject +") "
         return transaction_name
+    
+    def get_absolute_url(self):
+        return reverse('transaction-detail', kwargs={'pk': self.pk})
