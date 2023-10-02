@@ -1,0 +1,799 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    - primary meta tags
+  -->
+  <title>Enterprise Resource Planner</title>
+  <meta name="title" content="ERP">
+  <meta name="description" content="All about the Enterprise Resource Planner!!">
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="{% static 'home/favicon.svg' %}" type="image/svg+xml">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700 & display=swap" rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="{% static 'home/main.css' %}" >
+  <link rel="stylesheet" href="{% static 'home/assets/css/style.css'%}">
+  <link rel="stylesheet" href="{% static 'home/assets/css/profile.css'%}">
+  <link rel="stylesheet" href="{% static 'home/assets/css/afterLogin.css'%}">
+  <link rel="stylesheet" href="{% static 'home/assets/css/transactioncreate.css'%}">
+
+  <!-- 
+    - all images
+  -->
+  <link rel="preload" as="image" href= "{% static 'home/assets/images/hero-bg.jpg' %}">
+  <link rel="preload" as="image" href="{% static 'home/assets/images/hero-slide-1.jpg' %}">
+  <link rel="preload" as="image" href="{% static 'home/assets/images/hero-slide-2.jpg' %}">
+  <link rel="preload" as="image" href="{% static 'home/assets/images/hero-slide-3.jpg' %}">
+
+</head>
+
+{% if not user.is_authenticated %}
+<body style="background:#222E50">
+
+
+  <!-- 
+    - #HEADER
+  -->
+  <header class="header" data-header>
+    <div class="container">
+
+      <h1 style="font-size: 25px;
+      color: #ffffff;
+      text-align: center;
+      background-color: #f2f2f2;
+      padding: 10px;
+      border: 2px solid #336699;
+      border-radius: 8px;
+      background:linear-gradient(135deg, #3498db, #e74c3c);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">Enterprise Resource Planner</h1>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          <a href="#" class="logo">
+            <img src="{% static 'home/assets/images/logo-dark.svg' %}" width="74" height="24" alt="E.R.P.">
+          </a>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+
+          <li>
+            <a href="{%url 'home-home'%}" class="navbar-link">Home</a>
+          </li>
+
+        </ul>
+        
+
+        <div class="wrapper">
+          <a href="mailto:info@email.com" class="contact-link">erp111@gmail.com</a>
+
+          <a href="tel:001234567890" class="contact-link">(+977) 9843620293</a>
+        </div>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="https://www.twitter.com" target="_blank" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.facebook.com" target="_blank" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.dribble.com" target="_blank" class="social-link">
+              <ion-icon name="logo-dribbble"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.instagram.com" target="_blank" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.youtube.com" target="_blank" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <a href="{% url 'login' %}" class="btn btn-primary">Log In</a>
+      <a href="{% url 'register' %}" class="btn btn-primary">Sign Up</a>
+
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+    </div>
+  </header>
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+      <section class="section hero has-bg-image" aria-label="home"
+      style="background-image: url('{% static "home/assets/images/hero-bg.jpg" %}')">
+        <div class="container">
+
+          <div class="hero-content">
+
+            {% block logout%}
+            {% endblock logout%}
+            <h1 class="h1 hero-title"> <q>A budget is telling your money where to go instead of wondering where it went </q> - Dave Ramsey </h1>
+            <br></br>
+            <div class="btn-wrapper">
+
+              <a href="#section_developers" class="btn btn-primary">Meet Developers?</a>
+
+              <a href="#section_achievements" class="btn btn-outline">Our Achievements</a>
+
+            </div>
+
+          </div>
+
+          <div class="hero-slider" data-slider>
+
+            <div class="slider-inner">
+              <ul class="slider-container" data-slider-container>
+
+                <li class="slider-item">
+
+                  <figure class="img-holder" style="--width: 575; --height: 550;">
+                    <img src="{% static 'home/assets/images/hero-slide-1.jpg'%}" width="575" height="550" alt="" class="img-cover">
+                  </figure>
+
+                </li>
+
+                <li class="slider-item">
+
+                  <div class="hero-card">
+                    <figure class="img-holder" style="--width: 575; --height: 550;">
+                      <img src="{% static 'home/assets/images/hero-slide-2.jpg'%}" width="575" height="550" alt="hero banner"
+                        class="img-cover">
+                    </figure>
+
+                    <button class="play-btn" aria-label="play adex intro">
+                      <ion-icon name="play" aria-hidden="true"></ion-icon>
+                    </button>
+                  </div>
+
+                </li>
+
+                <li class="slider-item">
+
+                  <figure class="img-holder" style="--width: 575; --height: 550;">
+                    <img src="{% static 'home/assets/images/hero-slide-3.jpg'%}" width="575" height="550" alt="" class="img-cover">
+                  </figure>
+
+                </li>
+
+              </ul>
+            </div>
+
+            <button class="slider-btn prev" aria-label="slide to previous" data-slider-prev>
+              <ion-icon name="arrow-back"></ion-icon>
+            </button>
+
+            <button class="slider-btn next" aria-label="slide to next" data-slider-next>
+              <ion-icon name="arrow-forward"></ion-icon>
+            </button>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+    
+      <!-- 
+        - #SERVICE
+      -->
+
+      <section class="section service" aria-labelledby="service-label">
+        <div class="container">
+
+          <p class="section-subtitle" id="service-label">What We Do?</p>
+
+          <h2 class="h2 section-title">
+            The service we offer is specifically designed to meet your financial needs.
+          </h2>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+                </div>
+
+                <h3 class="h4 card-title">24/7 Support</h3>
+
+                <p class="card-text">
+                The support we offer is made available 24/7!!
+                </p>
+
+                <a href="#" class="btn-text">
+                  <span class="span">Learn More</span>
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                </a>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <ion-icon name="shield-checkmark-outline" aria-hidden="true"></ion-icon>
+                </div>
+
+                <h3 class="h4 card-title">Secure Payments</h3>
+
+                <p class="card-text">
+                Connect to your desired e-pays through our page. The transactions will be secured.
+                </p>
+
+                <a href="#" class="btn-text">
+                  <span class="span">Learn More</span>
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                </a>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <ion-icon name="cloud-download-outline" aria-hidden="true"></ion-icon>
+                </div>
+
+                <h3 class="h4 card-title">Frequent Updates</h3>
+
+                <p class="card-text">
+                As per the needs we update ourselves timely to provide the best services.
+                </p>
+
+                <a href="#" class="btn-text">
+                  <span class="span">Learn More</span>
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                </a>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <ion-icon name="pie-chart-outline" aria-hidden="true"></ion-icon>
+                </div>
+
+                <h3 class="h4 card-title">Market Research</h3>
+
+                <p class="card-text">
+                Market is where we compete so we deligently try our best to imply what see best in the market.
+                </p>
+
+                <a href="#" class="btn-text">
+                  <span class="span">Learn More</span>
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                </a>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #ABOUT
+      -->
+
+      <section class="about" aria-labelledby="about-label">
+        <div class="container">
+
+          <figure class="about-banner">
+            <img src="{% static 'home/assets/images/about-banner.png'%}" width="800" height="580" loading="lazy" alt="about banner"
+              class="w-100">
+          </figure>
+
+          <div class="about-content">
+
+            <p class="section-subtitle" id="about-label">Why Choose Us?</p>
+
+            <h2 class="h2 section-title">
+              We bring solutions to make life easier for our clients.
+            </h2>
+
+            <ul>
+
+              <li class="about-item">
+                <div class="accordion-card expanded" data-accordion>
+
+                  <h3 class="card-title">
+                    <button class="accordion-btn" data-accordion-btn>
+                      <ion-icon name="chevron-down-outline" aria-hidden="true" class="down"></ion-icon>
+
+                      <spna class="span h5">Professional Design</spna>
+                    </button>
+                  </h3>
+
+                  <p class="accordion-content">
+                  We specialize in creating professional designs that captivate, inspire, and communicate your unique brand identity. Our team of skilled designers is dedicated to crafting visuals that not only look aesthetically pleasing but also convey the essence of your message. 
+                  </p>
+
+                </div>
+              </li>
+
+              <li class="about-item">
+                <div class="accordion-card" data-accordion>
+
+                  <h3 class="card-title">
+                    <button class="accordion-btn" data-accordion-btn>
+                      <ion-icon name="chevron-down-outline" aria-hidden="true" class="down"></ion-icon>
+
+                      <spna class="span h5">Top-Notch Support</spna>
+                    </button>
+                  </h3>
+
+                  <p class="accordion-content">
+                    We understand that every step of your journey matters, and that's why our dedicated support team is here to provide you with unparalleled assistance and guidance.
+                  </p>
+
+                </div>
+              </li>
+
+              <li class="about-item">
+                <div class="accordion-card" data-accordion>
+
+                  <h3 class="card-title">
+                    <button class="accordion-btn" data-accordion-btn>
+                      <ion-icon name="chevron-down-outline" aria-hidden="true" class="down"></ion-icon>
+
+                      <spna class="span h5">Exclusive Assets</spna>
+                    </button>
+                  </h3>
+
+                  <p class="accordion-content">
+                    Introducing our collection of exclusive assets – a treasure trove designed to elevate your projects to new heights. These meticulously crafted resources are a testament to our dedication to quality and innovation.
+                  </p>
+
+                </div>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #FEATURE
+      -->
+
+      <section class="section feature" aria-labelledby="feature-label">
+        <div class="container">
+
+          <figure class="feature-banner">
+            <img src="{% static 'home/assets/images/feature-banner.png'%}" width="800" height="531" loading="lazy" alt="feature banner"
+              class="w-100">
+          </figure>
+
+          <div class="feature-content">
+
+            <p class="section-subtitle" id="feautre-label">Our Solutions</p>
+
+            <h2 class="h2 section-title">
+              We make your spending stress-free for you to have the perfect control.
+            </h2>
+
+            <p class="section-text">
+              Experience the transformative power of our application – a true companion that empowers you to take control of your financial present and future. Say goodbye to stress and hello to confidence with a tool that's built to elevate your financial well-being.
+            </p>
+
+            <ul class="feature-list">
+
+              <li>
+                <div class="feature-card">
+
+                  <div class="card-icon">
+                    <ion-icon name="checkmark" aria-hidden="true"></ion-icon>
+                  </div>
+
+                  <span class="span">
+                    Empower yourself with knowledge and resources that make financial management effortless.
+                  </span>
+
+                </div>
+              </li>
+
+              <li>
+                <div class="feature-card">
+
+                  <div class="card-icon">
+                    <ion-icon name="checkmark" aria-hidden="true"></ion-icon>
+                  </div>
+
+                  <span class="span">
+                    From budgeting to investment tracking, our app covers all aspects of your financial journey.
+                  </span>
+
+                </div>
+              </li>
+
+              <li>
+                <div class="feature-card">
+
+                  <div class="card-icon">
+                    <ion-icon name="checkmark" aria-hidden="true"></ion-icon>
+                  </div>
+
+                  <span class="span">
+                    Simplify complex financial matters with easy-to-understand insights and tools.
+                  </span>
+
+                </div>
+              </li>
+
+              <li>
+                <div class="feature-card">
+
+                  <div class="card-icon">
+                    <ion-icon name="checkmark" aria-hidden="true"></ion-icon>
+                  </div>
+
+                  <span class="span">
+                    Say goodbye to financial stress as our app guides you through informed decisions.
+                  </span>
+
+                </div>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #STATS
+      -->
+
+      <section class="stats" aria-label="our stats" id="section_achievements">
+        <div class="container">
+           <h1 style="font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            margin: 0;"> OUR ACHIEVEMENTS: </h1>
+            
+          <ul class="stats-card has-bg-image" style="background-image: url('{% static "home/assets/images/stats-bg.jpg" %}')">
+            <li>
+              <p class="card-text">
+                <span class="h1">5</span>
+
+                <spna class="span">Completed Projects</spna>
+              </p>
+            </li>
+
+            <li>
+              <p class="card-text">
+                <span class="h1">{{users}}</span>
+
+                <spna class="span">Happy Users</spna>
+              </p>
+            </li>
+
+            <li>
+              <p class="card-text">
+                <span class="h1">2</span>
+
+                <spna class="span">Maintanence Team</spna>
+              </p>
+            </li>
+
+            <li>
+              <p class="card-text">
+                <span class="h1">{{transactions}}</span>
+
+                <spna class="span">Transactions Recorded</spna>
+              </p>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #PROJECT
+      -->
+
+      <section class="section project" aria-labelledby="project-label" id="section_developers">
+        <div class="container">
+
+          <h1 class="section-subtitle" id="project-label">Meet Our Developers</h1>
+
+          <h2 class="h2 section-title">
+          Checkout their profiles and their achievements as well!
+          </h2>
+
+          <ul class="grid-list">
+
+            <li>
+              <style>
+                .project-card {
+                    display: flex;
+                    justify-content: center; /* Center items horizontally */
+                    /* Other styles for project-card */
+                }
+            
+                .block {
+                    /* Styles for your blocks */
+                }
+            </style>
+              <div class="project-card">
+
+                <figure class="card-banner img-holder" style="width: 360px; height: 320px; border-radius: 50%; border: 2px solid #3498db; overflow: hidden;">
+                  <img src="{% static 'home/assets/images/mk.jpg' %}" width="200" height="200" loading="lazy" alt="mk" class="img-cover" style="object-fit: cover;">
+                </figure>
+              
+
+                <div class="card-content">
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Mausam Kumar Shah</a>
+                  </h3>
+
+                  <p class="card-text">
+                    <ul class="feature-list">
+
+                      <li>
+                        <div class="feature-card">
+
+                          <div class="card-icon">
+                            <ion-icon name="checkmark" aria-hidden="true"></ion-icon>
+                          </div>
+
+                          <span class="span">
+                          Project Management
+                          </span>
+
+                        </div>
+                      </li>
+                      <li>
+                        <div class="feature-card">
+
+                          <div class="card-icon">
+                            <ion-icon name="checkmark" aria-hidden="true"></ion-icon>
+                          </div>
+
+                          <span class="span">
+                            Frontend
+                          </span>
+
+                        </div>
+                      </li>
+                      <li>
+                        <div class="feature-card">
+
+                          <div class="card-icon">
+                            <ion-icon name="checkmark" aria-hidden="true"></ion-icon>
+                          </div>
+
+                          <span class="span">
+                         <a href="#">077bei023</a>
+                          </span>
+
+                        </div>
+                      </li>
+                    </ul>
+                  </p>
+
+                  <ul class="card-meta-list">
+                    <li class="card-meta-item">
+                      <ion-icon name="document-text-outline" aria-hidden="true"></ion-icon>
+
+                      <span class="meta-text">Coding</span>
+                    </li>
+
+                  </ul>
+
+                </div>
+
+              </div>
+            </li>
+
+            
+
+            <li>
+              <div class="project-card">
+
+                <figure class="card-banner img-holder" style="width: 320px; height: 320px; border-radius: 50%; border: 2px solid #3498db; overflow: hidden;">
+                  <img src="{% static 'home/assets/images/rohan.jpg' %}" width="200" height="200" loading="lazy" alt="mk" class="img-cover" style="object-fit: cover;">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Rohan Bade</a>
+                  </h3>
+
+                  <p class="card-text">
+                    <ul class="feature-list">
+
+                      <li>
+                        <div class="feature-card">
+
+                          <div class="card-icon">
+                            <ion-icon name="checkmark" aria-hidden="true"></ion-icon>
+                          </div>
+
+                          <span class="span">
+                          Backend
+                          </span>
+
+                        </div>
+                      </li>
+                      <li>
+                        <div class="feature-card">
+
+                          <div class="card-icon">
+                            <ion-icon name="checkmark" aria-hidden="true"></ion-icon>
+                          </div>
+
+                          <span class="span">
+                            Team Lead
+                          </span>
+
+                        </div>
+                      </li>
+                      <li>
+                        <div class="feature-card">
+
+                          <div class="card-icon">
+                            <ion-icon name="checkmark" aria-hidden="true"></ion-icon>
+                          </div>
+
+                          <span class="span">
+                         <a href="#">077bei036</a>
+                          </span>
+
+                        </div>
+                      </li>
+                    </ul>
+                  </p>
+                  <ul class="card-meta-list">
+
+                    <li class="card-meta-item">
+                      <ion-icon name="document-text-outline" aria-hidden="true"></ion-icon>
+
+                      <span class="meta-text">Developing</span>
+                    </li>
+
+                  </ul>
+
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #CTA
+      -->
+
+      <section class="cta" aria-label="call to action">
+        <div class="container">
+
+          <h2 class="h2 section-title">
+            Join our community by using our services and grow your business.
+          </h2>
+
+          <a href="#" class="btn btn-primary">Try it For Free</a>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+
+  {% else %}
+  {%block content%}
+  {%endblock content%}
+  {% endif %}
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="{% static 'home/assets/js/script.js'%}"></script>
+  <script src="{% static 'home/assets/js/afterLogin.js'%}"></script>
+
+  <!-- 
+    - ionicon
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script type="text/javascript" src="{% static 'home/assets/js/afterLogin.js'%}"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

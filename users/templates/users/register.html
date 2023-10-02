@@ -1,0 +1,21 @@
+{% load static %}
+{% block content %}
+<main>
+  <h1 style="font-size: 30px;
+color: #ffffff;text-align: center;background-color: #f2f2f2;padding: 10px;border: 2px solid #336699;border-radius: 8px; background:linear-gradient(135deg, #3498db, #e74c3c);box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">Sign Up Page</h1>
+  <link rel="stylesheet" href="{% static 'home/main.css' %}" >
+  <section class="section hero" aria-label="home" style="background-color: #222E50;margin-top:-100px">
+       <div class="loginForm">
+         <div class="backgroundDesign">
+           <img src="{% static 'home/assets/images/noPfp.jpg'%}"/>
+           <form method ="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-primary" type= "submit">Register</button>
+           </form>
+           <p>Or, Already have an account? <a href="{% url 'login' %}" style="color: #0000ff">Log In</a></p>
+         </div>
+       </div>
+   </section>
+</main>
+{% endblock content %}

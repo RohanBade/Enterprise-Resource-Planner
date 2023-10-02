@@ -1,0 +1,79 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+  body {
+      overflow: hidden;
+  }
+</style>
+<body>
+  <header class="header" data-header>
+    <div class="container">
+      <style>
+        h1 {
+            font-size: 25px;
+            color: #ffffff;
+            text-align: center;
+            background-color: #f2f2f2;
+            padding: 10px;
+            border: 2px solid #336699;
+            border-radius: 8px;
+            background:linear-gradient(135deg, #3498db, #e74c3c);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+      </style>
+
+      <nav class="navbar" data-navbar>
+
+        <ul class="navbar-list" style="list-style: none; display: flex; align-items: center; justify-content: center; margin: 0; padding: 0;">
+          
+          <li>
+            <a href="#" class="navbar-link" style="text-decoration: none; display: inline-block;">
+              <img src="{{ user.profile.image.url }}" class="userProfile userProfileButton" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #3498db;">
+            </a>
+          </li>
+        </ul>
+        
+        
+        
+      </nav>
+      <div class="userDisplay scrollUp" style="margin-top: 30px; margin-left: 30px; border: 2px solid #222E50; border-radius: 10px; padding: 15px; background-color: #F0F2F5;">
+        <h3 style="margin-bottom: 10px; color: #222E50; font-size:25px">{{user.username}}</h3>
+        <button class="btn btn-primary" style="background-color: #222E50; color: #FFFFFF; border: none; border-radius: 5px;"> <a href="{% url 'profile'%}" style="text-decoration: none; color: #FFFFFF;">Profile</a> </button>
+        <button class="btn btn-primary" style="background-color: #222E50; color: #FFFFFF; border: none; border-radius: 5px;"> <a href="{% url 'logout' %}" style="text-decoration: none; color: #FFFFFF;">Log out</a></button>
+      </div>
+
+      
+
+    </div>
+  </header>
+
+
+  <main>
+    <section class="section hero" aria-label="home" style="background-color: #222E50;margin-top:-20px">
+      <div class="transactionCreateContainer userProfileContainer" style="background: linear-gradient(135deg, #3498db, #e74c3c); border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); margin-top: -100px; max-width: 600px; margin-left: auto; margin-right: auto; margin-bottom: 25px;">
+        <h1 style="font-size: 1.5em; margin-bottom: 30px; color: #f3498db;">Create/Update Transaction:</h1>
+        <form method="POST">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button class="btn btn-primary" type="submit" style="margin-top: 15px; background-color: #3498db; border-color: #3498db;margin-bottom:10px;">Create/Update Transaction</button>
+        </form>
+      </div>
+      <div class="backButtonContainer" style="margin-top: 20px; text-align: center;">
+        <div class="iconContainer">
+          <a href="{% url 'home-home' %}">
+            <img src="{% static 'home/assets/images/back.png' %}" alt="Back"></a>
+        </div>
+        <h5 style="font-size: 0.9em; color: #fff;">Home</h5>
+      </div>
+    </section>
+    
+    
+    
+  
+  </main>
+
+</body>
+
+{% endblock content %}

@@ -1,0 +1,19 @@
+.backButtonContainer{
+    position: absolute;
+    top:90px;
+    left:80px;
+    color:white;
+}
+.backButtonContainer .iconContainer{
+    background:white;
+    border-radius:50%;
+    height:50px;
+    width:50px;
+    padding:10px;
+    margin-bottom:20px;
+    cursor:pointer;
+}
+.backButtonContainer img {
+    height:30px;
+    width:30px;
+}

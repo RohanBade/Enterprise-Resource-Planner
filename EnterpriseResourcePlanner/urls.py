@@ -20,13 +20,15 @@ from users import views as users_views
 from django.contrib.auth import views 
 from django.conf import settings
 from django.conf.urls.static import static
+from home.views import CustomLogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("home.urls")),
     path('register/', users_views.register, name='register'),
     path('login/', views.LoginView.as_view( template_name = "users/login.html"), name='login'),
-    path('logout/', views.LogoutView.as_view( template_name = "users/logout.html"), name='logout'),
+    #path('logout/', views.LogoutView.as_view( template_name = "users/logout.html"), name='logout'),
+    path('logout/', CustomLogoutView.as_view(), name='logout'),
     path('profile/', users_views.profile , name='profile'),
 ]
 
