@@ -1,0 +1,126 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block content %}
+<body style="background:#222E50" overflow:"hidden">
+  <header class="header" data-header style="background:#565f87">
+    <div class="container" >
+
+      <a href="{%url 'home-home'%}" class="logo" style="font-size: 25px;
+      color: #ffffff;
+      text-align: center;
+      background-color: #f2f2f2;
+      padding: 10px;
+      border: 2px solid #336699;
+      border-radius: 8px;
+      background:linear-gradient(135deg, #3498db, #e74c3c);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+          Enterprise Resource Planner
+      </a>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+
+          <li>
+            <a href="{% url 'transaction-create'%}" style ="font-size: 25px; color: #ffffff; margin: 0; text-align: center; padding: 10px; border-radius: 5px;" class="navbar-link" style="font-size:30px;">Create transaction</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link" style="text-decoration: none; display: inline-block;">
+              <img src="{{ user.profile.image.url }}" class="userProfile userProfileButton" style="width: 70px; height: 70px; border-radius: 50%; border: 2px solid #3498db;">
+            </a>
+          </li>
+        </ul>
+
+        <div class="wrapper">
+          <a href="mailto:info@email.com" class="contact-link">info@email.com</a>
+
+          <a href="tel:001234567890" class="contact-link">00 (123) 456 78 90</a>
+        </div>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-dribbble"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+      <div class="userDisplay scrollUp" style="margin-top: 30px; margin-left: 30px; border: 2px solid #222E50; border-radius: 10px; padding: 15px; background-color: #F0F2F5;">
+        <h3 style="margin-bottom: 10px; color: #222E50; font-size:25px">{{user.username}}</h3>
+        <button class="btn btn-primary" style="background-color: #222E50; color: #FFFFFF; border: none; border-radius: 5px;"> <a href="{% url 'profile'%}" style="text-decoration: none; color: #FFFFFF;">Profile</a> </button>
+        <button class="btn btn-primary" style="background-color: #222E50; color: #FFFFFF; border: none; border-radius: 5px;"> <a href="{% url 'logout' %}" style="text-decoration: none; color: #FFFFFF;">Log out</a></button>
+      </div>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+
+
+
+
+
+
+
+  <main>
+    <section class="section hero has-bg-image" aria-label="home"
+      style="background-color : #222E50;">
+      <div style="display: flex; justify-content: center; align-items: flex-start; height: 90vh;">
+        <div class="transaction-details" style="background: linear-gradient(135deg, #3498db, #e74c3c); padding: 30px; border: 2px solid #336699; border-radius: 10px; text-align: center; width: 80%; max-width: 500px;">
+            <p style="font-size: 2em; margin-bottom: 15px; color:white;"><h2 style="color:white;">Transaction Details:</h2> <span style="font-style: italic; color:#222E50">{{ object.transaction_type|title }}</span></p>
+            <p style="font-size: 1.4em; margin-bottom: 10px;"><h2 style="color:white;">Cost:</h2> <span style="font-style: italic; color:#222E50">{{ object.cost }}</span></p>
+            <p style="font-size: 1.2em; margin-bottom: 10px;"><h2 style="color:white;">Subject: </h2><span style="font-style: italic; color:#222E50">{{ object.subject }}</span></p>
+            <p style="font-size: 1.2em; margin-bottom: 25px;margin-top:-20px;"><h2 style="color:white;">Remarks: </h2><span style="font-style: italic; color:#222E50;">{{ object.remarks }}</span></p>
+            <div style="display: flex; justify-content: center;margin-top:20px;">
+                <a href="{% url 'transaction-update' object.id %}" class="btn btn-primary" style="background-color: #3498db; border-color: #3498db; font-size: 1.2em;">Update</a>
+                <a href="{% url 'transaction-delete' object.id %}" class="btn btn-danger" style="background-color: #e74c3c; border-color: #e74c3c; margin-left: 15px; font-size: 1.2em;">Delete</a>
+            </div>
+        </div>
+    </div>
+    
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+{% endblock content%}

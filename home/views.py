@@ -3,6 +3,8 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.shortcuts import render, get_object_or_404
 from home.models import Transaction
 from django.contrib.auth.models import User
+from django.contrib.auth.views import LogoutView
+from django.db.models import Sum
 
 
 # Create your views here.
@@ -13,21 +15,26 @@ def about( request ):
     }
     return render( request, "home/about.html",context )
 
+
 class TransactionListView( ListView ):
     model = Transaction
     template_name = "home/transaction_list.html"
     context_object_name="objects"
     ordering =['-datetime']
+    paginate_by =5
 
-class UserTransactionListView(ListView):
-    model = Transaction
-    template_name = 'home/user_transactions.html'
-    context_object_name = 'transactions'
-
-    def get_queryset(self):
-        user = get_object_or_404(User, username=self.kwargs.get('username'))
-        return Transaction.objects.filter(username=user).order_by('-datetime')
-
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['users'] = len(User.objects.all())
+        context['transactions'] = len(Transaction.objects.all())
+        if self.request.user.is_authenticated:
+            inflow_transactions = self.request.user.transaction_set.filter(transaction_type='income')
+            outflow_transactions = self.request.user.transaction_set.filter(transaction_type='expense')
+            total_cost_in = inflow_transactions.aggregate(total_cost=Sum('cost'))['total_cost']
+            total_cost_out = outflow_transactions.aggregate(total_cost=Sum('cost'))['total_cost']
+            context['cash_inflow'] = total_cost_in
+            context['cash_outflow'] = total_cost_out
+        return context
 
 class TransactionDetailView( DetailView ):
     model = Transaction
@@ -54,6 +61,7 @@ class TransactionUpdateView( LoginRequiredMixin, UserPassesTestMixin, UpdateView
             return True
         return False
 
+
 class TransactionDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Transaction
     success_url = '/'
@@ -63,3 +71,13 @@ class TransactionDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView)
         if self.request.user == transaction.username:
             return True
         return False
+
+class CustomLogoutView(LogoutView):
+    template_name = "users/logout.html"  
+
+    def get_context_data(self, **kwargs):
+        # Add your custom context data here
+        context = super().get_context_data(**kwargs)
+        context['users'] = len(User.objects.all())
+        context['transactions'] = len(Transaction.objects.all())
+        return context
