@@ -1,0 +1,45 @@
+.userProfile{
+    height:75px;
+    width:75px;
+    border-radius: 50%;
+}
+.userDisplay{
+    background:rgb(43, 43, 43);
+    display:flex;
+    flex-flow:column;
+    justify-content: center;
+    align-items: center;
+    padding:20px;
+    position: absolute;
+    top:90px;
+    right:60px;
+    transition:.25s ease-in-out;
+    transform-origin: top;
+}
+.userDisplay > *{
+    color:white;
+}
+.userDisplay button{
+    color:black;
+    margin-top:20px;
+}
+.userDisplay h3{
+    margin-top:20px;
+}
+.scrollUp{
+    transform:scaleY(0);
+}
+.scrollDown{
+    transform:scaleY(1);
+}
+table, tr, th,td{
+    border:1px solid white;
+    color:white;
+    padding:20px;
+}
+.tableContainer{
+    background:"green";
+}
+.has-bg-image{
+    height:100vh;
+}

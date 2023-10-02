@@ -1,0 +1,142 @@
+[
+    {
+        "datetime": "2023-08-15T09:30:00Z",
+        "subject": "Groceries",
+        "transaction_type": "expense",
+        "cost": "50.00",
+        "remarks": "Bought groceries for the week."
+    },
+    {
+        "datetime": "2023-08-14T15:20:00Z",
+        "subject": "Salary",
+        "transaction_type": "income",
+        "cost": "1500.00",
+        "remarks": "Received monthly salary."
+    },
+    {
+        "datetime": "2023-08-13T12:00:00Z",
+        "subject": "Dinner with friends",
+        "transaction_type": "expense",
+        "cost": "75.50",
+        "remarks": "Had a great time with friends at a restaurant."
+    },
+    {
+        "datetime": "2023-08-12T14:45:00Z",
+        "subject": "Rent",
+        "transaction_type": "expense",
+        "cost": "1200.00",
+        "remarks": "Paid monthly rent."
+    },
+    {
+        "datetime": "2023-08-11T10:00:00Z",
+        "subject": "Freelance work",
+        "transaction_type": "income",
+        "cost": "300.00",
+        "remarks": "Completed freelance project."
+    },
+    {
+        "datetime": "2023-08-10T18:30:00Z",
+        "subject": "Movie tickets",
+        "transaction_type": "expense",
+        "cost": "25.00",
+        "remarks": "Watched a new release at the cinema."
+    },
+    {
+        "datetime": "2023-08-09T11:15:00Z",
+        "subject": "Gas bill",
+        "transaction_type": "expense",
+        "cost": "35.75",
+        "remarks": "Paid the monthly gas bill."
+    },
+    {
+        "datetime": "2023-08-08T08:00:00Z",
+        "subject": "Bonus",
+        "transaction_type": "income",
+        "cost": "500.00",
+        "remarks": "Received a performance bonus."
+    },
+    {
+        "datetime": "2023-08-07T16:20:00Z",
+        "subject": "Shopping",
+        "transaction_type": "expense",
+        "cost": "90.25",
+        "remarks": "Bought new clothes and shoes."
+    },
+    {
+        "datetime": "2023-08-06T19:45:00Z",
+        "subject": "Web hosting renewal",
+        "transaction_type": "expense",
+        "cost": "15.00",
+        "remarks": "Renewed website hosting subscription."
+    },
+    {
+        "datetime": "2023-08-05T14:10:00Z",
+        "subject": "Consultation fee",
+        "transaction_type": "income",
+        "cost": "75.00",
+        "remarks": "Provided consulting services."
+    },
+    {
+        "datetime": "2023-08-04T12:30:00Z",
+        "subject": "Lunch",
+        "transaction_type": "expense",
+        "cost": "12.50",
+        "remarks": "Had lunch at a nearby cafe."
+    },
+    {
+        "datetime": "2023-08-03T09:00:00Z",
+        "subject": "Dividend",
+        "transaction_type": "income",
+        "cost": "200.00",
+        "remarks": "Received dividend from investments."
+    },
+    {
+        "datetime": "2023-08-02T15:40:00Z",
+        "subject": "Utilities",
+        "transaction_type": "expense",
+        "cost": "65.80",
+        "remarks": "Paid monthly utility bills."
+    },
+    {
+        "datetime": "2023-08-01T17:00:00Z",
+        "subject": "Gym membership",
+        "transaction_type": "expense",
+        "cost": "30.00",
+        "remarks": "Renewed gym membership for the month."
+    },
+    {
+        "datetime": "2023-07-31T13:15:00Z",
+        "subject": "Stock sale",
+        "transaction_type": "income",
+        "cost": "450.00",
+        "remarks": "Sold stocks for profit."
+    },
+    {
+        "datetime": "2023-07-30T10:45:00Z",
+        "subject": "Coffee",
+        "transaction_type": "expense",
+        "cost": "4.75",
+        "remarks": "Bought a cup of coffee on the way to work."
+    },
+    {
+        "datetime": "2023-07-29T08:20:00Z",
+        "subject": "Bonus",
+        "transaction_type": "income",
+        "cost": "300.00",
+        "remarks": "Received a performance bonus."
+    },
+    {
+        "datetime": "2023-07-28T14:55:00Z",
+        "subject": "Dinner",
+        "transaction_type": "expense",
+        "cost": "40.20",
+        "remarks": "Dined out with family."
+    },
+    {
+        "datetime": "2023-07-27T11:30:00Z",
+        "subject": "Web design project",
+        "transaction_type": "income",
+        "cost": "250.00",
+        "remarks": "Completed a web design project for a client."
+    }
+]
