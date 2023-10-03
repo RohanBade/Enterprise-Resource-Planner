@@ -21,10 +21,10 @@ Installation requires following steps:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/your-project.git
+git clone https://github.com/RohanBade/Enterprise-Resource-Planner.git
 
 # Change directory
-cd your-project
+cd <into directory>
 
 # Create virtual environment
 python3 -m venv <virtual_environment_name>
